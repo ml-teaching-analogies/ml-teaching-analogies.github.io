@@ -9,6 +9,16 @@
       {% endif %}
     </div>
 
+    <div class="extra" style="padding-top: 0">
+    <p>
+        {% assign author = site.authors | where: 'short_name', nm.author | first %}
+        {% if author %}
+          <span style="font-weight: bold; font-style: italic;">
+            Added By <a href="{{ author.url }}">{{ author.name }}</a>
+          </span>
+        {% endif %}
+        </p></div>
+
     {% if nm.ExpertRating == "Good" %}
     <div class='ui label green'>Good</div>
     {% elsif nm.ExpertRating == "Mediocre" %}
