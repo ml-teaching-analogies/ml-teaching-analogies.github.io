@@ -6,7 +6,7 @@ title: ML Teaching Analogies (Overview)
 
     {% assign ratings = "Good,Mediocre,Bad" | split: "," %}
 
-      <h1 class="ui dividing header">Analogies</h1>
+      <h1 class="ui dividing header">Analogies ({{ sorted_nms.size }})</h1>
 
     <!-- GOOD -->
     {% assign good_nms = sorted_nms | where: "ExpertRating", "Good" %}
