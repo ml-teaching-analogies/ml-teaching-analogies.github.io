@@ -1,0 +1,54 @@
+---
+title: ML Teaching Analogies (Overview)
+---
+<div class="ui text" style="margin-left: 10px; margin-right: 10px; margin-top: 100px; margin-bottom: 100px">
+    {% assign sorted_nms = site.nms | sort_natural: 'title' %}
+
+    {% assign ratings = "Good,Mediocre,Bad" | split: "," %}
+
+      <h1 class="ui dividing header">Analogies</h1>
+
+    <!-- GOOD -->
+    {% assign good_nms = sorted_nms | where: "ExpertRating", "Good" %}
+
+    <h3 class="ui header">Good Analogies ({{ good_nms.size }})</h3>
+      
+    <div class="ui cards">
+      {% for nm in good_nms %}
+        {% include nmCard.html %}
+      {% endfor %}
+    </div>
+
+    <!-- MEDIOCRE-->
+    {% assign mediocre_nms = sorted_nms | where: "ExpertRating", "Mediocre" %}
+
+    <h3 class="ui header">Mediocre Analogies ({{ mediocre_nms.size }})</h3>
+      
+    <div class="ui cards">
+      {% for nm in mediocre_nms %}
+        {% include nmCard.html %}
+      {% endfor %}
+    </div>
+
+    <!-- BAD -->
+    {% assign bad_nms = sorted_nms | where: "ExpertRating", "Bad" %}
+
+    <h3 class="ui header">Bad Analogies ({{ bad_nms.size }})</h3>
+      
+    <div class="ui cards">
+      {% for nm in bad_nms %}
+        {% include nmCard.html %}
+      {% endfor %}
+    </div>
+
+    <!-- NONE -->
+    {% assign unrated_nms = sorted_nms | where: "ExpertRating", "None" %}
+
+    <h3 class="ui header">Unrated Analogies ({{ unrated_nms.size }})</h3>
+      
+    <div class="ui cards">
+      {% for nm in unrated_nms %}
+        {% include nmCard.html %}
+      {% endfor %}
+    </div>
+</div>

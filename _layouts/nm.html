@@ -4,42 +4,10 @@ layout: default
 <div class="ui container" style="margin-top: 100px; margin-bottom: 100px">
 
   <h1 class="ui dividing header">
-    {% if page.sequence %}
-    {{ page.sequence }}
-    &mdash;
-    <span style='color: #2185d0'>{{ page.Step }}. {{ page.StepTitle }}</a>
-    {% else %}
     {{ page.title }}
-    {% endif %}
   </h1>
 
-  {% if page.sequence %}
-    {% assign sorted_nms = site.nms | where: "sequence", page.sequence | sort_natural: 'Step' %}
-    <div>
-      {{page.sequence}} is a sequence consisting of the following 
-      {{sorted_nms.size}} notional machines:
-    </div>
-    <div class="ui inverted steps">
-      {% for nm in sorted_nms %}
-        {% if nm.Step == page.Step %}
-          <div class="active step">
-            <div class="content">
-              <div class="title">{{nm.Step}}. {{nm.StepTitle}}</div>
-            </div>
-          </div>
-        {% else %}
-          <a href="{{nm.url}}" class="step">
-            <div class="content">
-              <div class="title">{{nm.Step}}. {{nm.StepTitle}}</div>
-            </div>
-          </a>
-        {% endif %}
-      {% endfor %}
-    </div>
-    <div style="margin: 20px"></div>
-  {% endif %}
-
-  <div class="ui grid">
+  <!-- <div class="ui grid">
     <div class="six wide column">
       <img class="ui medium rounded bordered image" src="/assets/images/nm/{{ page.image }}"></img>
     </div>
@@ -47,7 +15,7 @@ layout: default
       <h3>Programming Language</h3>
       <p>{{ page.ProgrammingParadigm }} / {{ page.ProgrammingLanguage }}</p>
       <h3>Form</h3>
-      <p>{{ page.Form }}</p>
+      <p>{{ page.Form }}</p> -->
       <h3>Attribution &mdash; Origin / Source</h3>
       <p>
         Collected by
@@ -59,19 +27,28 @@ layout: default
         {% endif %}    
         {{ page.OriginSource }}
       </p>
+    <!-- </div>
+  </div> -->
+
+  <h2 class="ui header">
+    <i class="pencil icon"></i>
+    <div class="content">
+      Description
     </div>
+  </h2>
+  <div class="ui segment">
+    <p>{{ page.Description }}</p>    
   </div>
 
   <h2 class="ui header">
-    <i class="thumbs up icon"></i>
+    <i class="book icon"></i>
     <div class="content">
-      Conceptual Advantage
+      Definition
     </div>
   </h2>
-  <div class="ui yellow inverted segment">
-    <p>{{ page.ConceptualAdvantage }}</p>    
+  <div class="ui segment">
+    <p>{{ page.Definition }}</p>    
   </div>
-
 
   <h2 class="ui header">
     <i class="table icon"></i>
@@ -80,7 +57,7 @@ layout: default
     </div>
   </h2>
   <table class="ui compact inverted blue celled selectable table">
-    <tr><th>PL</th><th>NM</th></tr>
+    <tr><th>Target concept</th><th>Source concept</th></tr>
     {% for entry in page.Mapping %}
       <tr>
         <td>{{ entry[0] }}</td>
@@ -89,7 +66,7 @@ layout: default
     {% endfor %}
   </table>
 
-  <h2 class="ui header">
+  <!-- <h2 class="ui header">
     <i class="search icon"></i>
     <div class="content">
       Draws Attention To
@@ -126,9 +103,9 @@ layout: default
   <div class='ui label'>not captured</div>
   {% else %}
   <p>{{ page.Cost }}</p>
-  {% endif %}
+  {% endif %} -->
 
-  {% assign stripped_content = content | strip_html | strip %}
+  <!-- {% assign stripped_content = content | strip_html | strip %}
   {% if stripped_content != empty %}
   <h2 class="ui header">
     <i class="info circle icon"></i>
@@ -137,9 +114,9 @@ layout: default
     </div>
   </h2>
   {{ content }}
-  {% endif %}
+  {% endif %} -->
 
-  <div class="ui secondary segment" style="margin-top: 40px">
+  <!-- <div class="ui secondary segment" style="margin-top: 40px">
     <h2 class="ui header">Comments or Feedback?</h3>
       <p>
         Do you have feedback on this notional machine?
@@ -156,6 +133,6 @@ layout: default
       <p>
         <a class="ui button" href="https://github.com/notionalmachines/notionalmachines.github.io/blob/master/{{ page.path }}?plain=1#L2">Create an Issue on GitHub</a>
       </p>
-    </div>
+    </div> -->
 
 </div>

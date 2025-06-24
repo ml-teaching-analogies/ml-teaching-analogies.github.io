@@ -10,9 +10,9 @@ layout: default
           {{ page.affiliation }}
         </div>
       </h1>
-      <p>
+      <!-- <p>
         <i class="home icon"></i> <a href="{{ page.homepage }}">{{ page.homepage }}</a>
-      </p>
+      </p> -->
       {{ content }}    
     </div>
     <div class="four wide column">
@@ -23,7 +23,7 @@ layout: default
 
   {% assign filtered_posts = site.nms | where: 'author', page.short_name %}
   {% if filtered_posts.size > 0 %}
-  <h3 class="ui header">Collected Notional Machines</h3>
+  <h3 class="ui header">Collected Analogies</h3>
 
   <div class="ui list">
     {% for post in filtered_posts %}
